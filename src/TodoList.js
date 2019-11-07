@@ -14,7 +14,7 @@ export default function TodoList({
   return (
     <Paper>
       <List>
-        {todos.map(todo => (
+        {todos.map((todo, i) => (
           <>
             <Todo
               text={todo.text}
@@ -25,7 +25,7 @@ export default function TodoList({
               id={todo.id}
               editTodo={editTodo}
             />
-            <Divider />
+            {i < todos.length - 1 && <Divider />}
           </>
         ))}
       </List>
