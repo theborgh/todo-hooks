@@ -11,24 +11,27 @@ export default function TodoList({
   toggleTodoCompletion,
   editTodo,
 }) {
-  return (
-    <Paper>
-      <List>
-        {todos.map((todo, i) => (
-          <>
-            <Todo
-              text={todo.text}
-              key={todo.id}
-              completed={todo.completed}
-              removeTodo={removeTodo}
-              toggleTodoCompletion={toggleTodoCompletion}
-              id={todo.id}
-              editTodo={editTodo}
-            />
-            {i < todos.length - 1 && <Divider />}
-          </>
-        ))}
-      </List>
-    </Paper>
-  );
+  if (todos.length)
+    return (
+      <Paper>
+        <List>
+          {todos.map((todo, i) => (
+            <>
+              <Todo
+                text={todo.text}
+                key={todo.id}
+                completed={todo.completed}
+                removeTodo={removeTodo}
+                toggleTodoCompletion={toggleTodoCompletion}
+                id={todo.id}
+                editTodo={editTodo}
+              />
+              {i < todos.length - 1 && <Divider />}
+            </>
+          ))}
+        </List>
+      </Paper>
+    );
+
+  return null;
 }
