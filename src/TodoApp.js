@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Typography} from '@material-ui/core';
 import {Paper} from '@material-ui/core';
 import {AppBar} from '@material-ui/core';
@@ -18,10 +18,6 @@ export default function TodoApp() {
     toggleTodoCompletion,
     editTodo,
   } = useTodoState(initialTodos);
-
-  useEffect(() => {
-    window.localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
 
   return (
     <Paper
